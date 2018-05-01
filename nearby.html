@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="animate/animate.css">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+      #map {
+        width: 100%;
+        height: 450px;
+        background-color: grey;
+        border: 1px solid black;
+        border-radius: 5px;
+
+      }
+      h1 {
+        color:#55a18a;
+      }
+    </style>
+  </head>
+  <div class="pic">
+  <img src="pictures/bg1.png">
+</div>
+  <body class="animated fadeIn">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="ownprofile.html" id="face3">My Profile</a>
+    <a href="explorerpage.html" id="face1">Explore Connections</a>
+    <a href="texting.html" id="face2">Messenger</a>
+    <a href="skillstaught.html" id="face4">Edit Skills</a>
+    <a href="nearby.html" id="face3">Nearby</a>
+
+  </div>
+
+
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <script type="text/javascript">
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+  }
+
+  </script>
+
+    <div align = "center" class="nearbyTitle"><img src="pictures/nearby title.png" alt="Smiley face"></div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var bounds = new google.maps.LatLngBounds();
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: { lat: 40.763591, lng: -73.949380 }
+        });
+        // Multiple Markers
+        var markers = [
+            ['Roosevelt Island Senior Association, NYC', 40.763591, -73.949380,
+                '<img src="pictures/avatar2.jpg" class="circle"><h3>Elizabeth wants to learn about social media.</h3><p>I am a Chess Wiz.</p>'],
+            ['Jeffrey, NYC', 40.767281, -73.945370,
+              '<img src="pictures/avatar4.jpg" class="circle"><h3>Jeffrey wants to learn gardening.</h3><p>My love for hiking is only trumped by my love for baking.</p>'],
+            ['Amy, NYC', 40.762536, -73.948632,
+              '<img src="pictures/avatar8.jpg" class="circle"><h3>Amy wants to learn about comedy.</h3><p>Dancing is my passion.</p>'],
+            ['Dwayne, NYC', 40.755709, -73.955670,
+              '<img src="pictures/avatar5.jpg" class="circle"><h3>Dwayne wants to learn about online gaming.</h3><p>Cyclist and film connoisseur.</p>'],
+        ];
+        // Display multiple markers on a map
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+        // Loop through our array of markers & place each one on the map
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            bounds.extend(position);
+            //map.fitBounds(bounds);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+            // Allow each marker to have an info window
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(markers[i][3]);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+
+        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(14);
+            google.maps.event.removeListener(boundsListener);
+        });
+
+      }
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbWjNLAvrb5IIrZRO3mdeoYFnBZBkIFJg&region=US&callback=initMap">
+    </script>
+  </body>
+</html>

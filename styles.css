@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+/*@import url('https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css'); */
+.logo { padding-top: 10%;
+padding-left: 6%;
+}
+
+.profile {padding-top: 15%
+}
+/*.nearbyTitle{padding-left: 18%;
+}*/
+.editSkills{padding-bottom: 0%
+}
+.pic{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+    z-index: -5;
+    overflow: hidden;
+}
+
+body{
+display: block;
+font-family: 'Bitter', serif;
+
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.btn-info {
+
+    background-color: #93CCEA;
+
+}
+.btn-success{
+    background-color: #93CCEA !important;
+}
+
+#imgInp{
+    background-color: #93CCEA;
+
+}
+
+
+#img-upload{
+    width: 50%;
+    padding-top: 5%;
+}
+
+.list-group{
+  padding-top: 10%;
+}
+
+#profilepic{
+  padding-top: 6%;
+  align-content: center;
+  height: 150px;
+  max-width: 150px;
+}
+
+    /*
+    div{border: 1px solid blue;}
+    a{border: 1px solid red;}
+    i{border: 1px solid green;}
+    span{border: 1px solid yellow;}
+    img{border: 1px solid pink;}
+    hr{border: 1px solid orange;}
+    p{border: 1px solid purple;}
+    ul{border: 1px solid gray;}
+    li{border: 1px solid teal;}
+    */
+
+#skills{
+  padding: 5%;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 3px solid grey;
+    background-color: white;
+}
+
+
+#plusbutton
+{
+    width: 50px;
+    height: 50px;
+   background-color: transparent;
+
+}
+
+button {
+  outline: none;
+}
+
+#info{
+  font-size: 18px;
+}
+
+
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main span
+{
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #262626;
+    padding: 3px;
+    color: white;
+    right: 5px;
+}
